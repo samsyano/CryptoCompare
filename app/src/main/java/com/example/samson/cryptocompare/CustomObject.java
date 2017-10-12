@@ -8,11 +8,28 @@ public class CustomObject {
 
     String currency;
     private Double ETC, BTC;
+    String eth_value, btc_value;
 
-    public CustomObject(String currency, Double ETC, Double BTC) {
+    public CustomObject(String currency,  Double BTC, Double ETC, String eth_value, String btc_value) {
         this.currency = currency;
         this.ETC = ETC;
         this.BTC = BTC;
+        this.eth_value = eth_value;
+        this.btc_value = btc_value;
+    }
+    public CustomObject(String currency,  Double BTC, Double ETC) {
+        this.currency = currency;
+        this.ETC = ETC;
+        this.BTC = BTC;
+
+    }
+
+    public String getEth_value() {
+        return eth_value;
+    }
+
+    public String getBtc_value() {
+        return btc_value;
     }
 
     public Double getETC() {
