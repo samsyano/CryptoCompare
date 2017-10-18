@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginTop="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layout_marginBottom="30dp"
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp"
+    android:layout_marginTop="5dp"
     android:orientation="vertical">
 
-   <TextView
-       android:layout_margin="10dp"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:textSize="18sp"
-       android:text="Get your currency conversion done"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Get your currency conversion done"
+        android:textSize="18sp" />
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -41,13 +41,13 @@
             <TextView
                 android:id="@+id/from_currency"
                 android:layout_width="100dp"
-                tools:text="NGN"
-                android:textSize="22sp"
-                android:textStyle="bold"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/textView"
                 android:layout_marginStart="22dp"
-                android:layout_toEndOf="@+id/textView" />
+                android:layout_toEndOf="@+id/textView"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                tools:text="NGN" />
 
 
             <TextView
@@ -70,23 +70,32 @@
                 android:hint="0.00"
                 android:inputType="numberDecimal" />
 
-
-            <TextView
-                android:id="@+id/textView2"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/textView3"
+                android:layout_marginTop="36dp"
                 android:layout_below="@+id/editText"
-                android:layout_marginTop="34dp"
-                android:text="To Currency:"
-                android:textSize="18sp" />
+                android:layout_alignStart="@+id/textView3"
+                android:layout_marginStart="15dp">
 
-            <Spinner
-                android:id="@+id/to_currency_spinner"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/textView2"
-                android:layout_alignStart="@+id/editText" />
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="22dp"
+                    android:text="To Currency:"
+                    android:textSize="18sp" />
+
+
+                <Spinner
+                    android:id="@+id/to_currency_spinner"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/editText"
+                    android:layout_alignTop="@+id/textView2"
+                    android:layout_marginLeft="0dp" />
+
+            </LinearLayout>
 
             <Button
                 android:id="@+id/button"
@@ -106,18 +115,18 @@
     </android.support.v7.widget.CardView>
 
     <TextView
-        android:layout_margin="10dp"
-        android:textSize="20sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Result:" />
+        android:layout_margin="10dp"
+        android:text="Result:"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/result"
-        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:textSize="20sp" />
 
 </LinearLayout>
