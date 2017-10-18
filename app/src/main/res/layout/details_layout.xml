@@ -85,7 +85,7 @@
                 android:id="@+id/to_currency_spinner"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/textView2"
+                android:layout_alignTop="@+id/textView2"
                 android:layout_alignStart="@+id/editText" />
 
             <Button
