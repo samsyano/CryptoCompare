@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="30dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:orientation="vertical">
+
+   <TextView
+       android:layout_margin="10dp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:textSize="18sp"
+       android:text="Get your currency conversion done"/>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="308dp"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="49dp"
+                android:text="From Currency:"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/from_currency"
+                android:layout_width="100dp"
+                tools:text="NGN"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textView"
+                android:layout_marginStart="22dp"
+                android:layout_toEndOf="@+id/textView" />
+
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/editText"
+                android:layout_alignBottom="@+id/editText"
+                android:layout_toStartOf="@+id/from_currency"
+                android:text="Enter Amount:"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/from_currency"
+                android:layout_below="@+id/from_currency"
+                android:layout_marginTop="22dp"
+                android:hint="0.00"
+                android:inputType="numberDecimal" />
+
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/textView3"
+                android:layout_below="@+id/editText"
+                android:layout_marginTop="34dp"
+                android:text="To Currency:"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/to_currency_spinner"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textView2"
+                android:layout_alignStart="@+id/editText" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/round_rectangle"
+                android:text="MAKE CONVERSION"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:layout_margin="10dp"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Result:" />
+
+    <TextView
+        android:id="@+id/result"
+        android:textSize="20sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

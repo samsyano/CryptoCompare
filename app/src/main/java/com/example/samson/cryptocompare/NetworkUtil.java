@@ -25,6 +25,7 @@ public class NetworkUtil {
         try {
             URL url = getURL(reqUrl);
 
+            Log.e(LOGCAT, "Network called ....");
             data = makeHttpConnection(url);
 
 
