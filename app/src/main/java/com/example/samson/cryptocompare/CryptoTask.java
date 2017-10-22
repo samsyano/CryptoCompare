@@ -17,6 +17,8 @@ public class CryptoTask {
 
     public static String LOAD_DATA = "load-data";
     public static String LOAD_REMINDER =  "load-reminder";
+
+    public static String LOAD_DATA_WITH_NOTIFICATION = "load-data-notification";
     final static String url = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH&" +
             "tsyms=USD,EUR,NGN,KRW,HKD,ZWD,NZD,CAD,BRL,AUD,SEK,ZAR,MXN,RUB,GBP,JPY,CNY,PLN,CZK,DKK,KES";
 
@@ -24,11 +26,16 @@ public class CryptoTask {
    static void executeTask(Context context, String action){
         if(action.equals(LOAD_DATA)){
             loadingData(context);
-        }
-        else if(action.equals(LOAD_REMINDER)){
+        }else if(action.equals(LOAD_REMINDER)){
             loadingData(context);
-            NotificationUtils.remindForUpdate(context);
+        }else if(action.equals(LOAD_DATA_WITH_NOTIFICATION)){
+            loadWithNotification(context);
         }
+    }
+
+    private static void loadWithNotification(Context context){
+        loadingData(context);
+        NotificationUtils.remindForUpdate(context);
     }
 
     private static void loadingData(Context context){
@@ -39,10 +46,11 @@ public class CryptoTask {
 
 
         if(networkInfo == null ){
-            return;
+          return ;
         }
 
-        if (!networkInfo.isConnected() && networkInfo == null) {
+
+        if (!networkInfo.isConnected() ) {
             return;
         }
 

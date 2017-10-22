@@ -23,7 +23,6 @@ public class CryptoDbHelper extends SQLiteOpenHelper {
                 CryptoContract.CryptoEntry.ID + " INTEGER PRIMARY KEY, " +
                 CryptoContract.CryptoEntry.COUNTRY_CURRENCY + " TEXT NOT NULL, " +
                 CryptoContract.CryptoEntry.BTC_EQUIVALENT + " TEXT NOT NULL, "   +
-//                CryptoContract.CryptoEntry.IMAGE_URL + " TEXT NOT NULL, " +
                 CryptoContract.CryptoEntry.ETH_EQUIVALENT + " TEXT NOT NULL);";
 
         db.execSQL(sql_query);

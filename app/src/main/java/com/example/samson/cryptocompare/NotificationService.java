@@ -8,10 +8,10 @@ import com.firebase.jobdispatcher.JobParameters;
 import com.firebase.jobdispatcher.JobService;
 
 /**
- * Created by SAMSON on 10/14/2017.
+ * Created by SAMSON on 10/22/2017.
  */
 
-public class CryptoJobService extends JobService{
+public class NotificationService extends JobService{
 
     AsyncTask asyncTask;
 
@@ -23,9 +23,9 @@ public class CryptoJobService extends JobService{
             @Override
             protected Object doInBackground(Object[] params) {
 
-                Context context = CryptoJobService.this;
+                Context context = NotificationService.this;
                 Log.e("samsyano ", "loading async background");
-                    CryptoTask.executeTask(context, CryptoTask.LOAD_REMINDER);
+                CryptoTask.executeTask(context, CryptoTask.LOAD_DATA_WITH_NOTIFICATION);
 
 
 

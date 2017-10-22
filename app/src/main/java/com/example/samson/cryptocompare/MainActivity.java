@@ -1,5 +1,6 @@
 package com.example.samson.cryptocompare;
 
+import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     SimpleCursorAdapter simpleCursorAdapter;
     Loader dataLoader;
-
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +46,18 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         setContentView(R.layout.mainactivity_layout);
 
 
-        getContentResolver().delete(CryptoContract.CONTENT_URI, null, null);
+
+//        getContentResolver().delete(CryptoContract.CONTENT_URI, null, null);
 
         Intent intent = new Intent(this, CryptoService.class);
         intent.setAction(CryptoTask.LOAD_DATA);
         Log.e("SERVICE", "service to start...");
         startService(intent);
+
+
+        ReminderUtils.scheduleReminder(MainActivity.this);
+        NotificaationReminderUtil.scheduleReminder(MainActivity.this);
+
 
 
         spinner = (Spinner) findViewById(R.id.spinner_spin);
@@ -88,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         });
 
 
-        ReminderUtils.scheduleReminder(getApplicationContext());
+
 
 
         dataLoader =  getSupportLoaderManager().initLoader(LOADER_CONSTANT, null, this);
@@ -128,6 +135,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+
+        progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.setTitle("Loading Data...");
+        progressDialog.setMessage("loading....");
+        Log.e(LOGCAT, "ProgressDialog working");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setCancelable(false);
+        progressDialog.setIndeterminate(true);
+        progressDialog.show();
         return new AsyncTaskLoader<Cursor>(this) {
 
             @Override
@@ -157,6 +173,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
 
         Log.e("LOADER ", "onloadfinished loaded...");
+
+        if(data.getCount() > 0){
+            progressDialog.cancel();
+        }
+
 
         simpleCursorAdapter = new SimpleCursorAdapter(this, R.layout.support_simple_spinner_dropdown_item,
                 null, new String[]{CryptoContract.CryptoEntry.COUNTRY_CURRENCY}, new int[]{android.R.id.text1}, 0);
@@ -191,6 +212,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 String eth = cursor.getString(eth_columnIndex);
 
                  currency = cursor.getString(currency_columnIndex);
+
 
                 btc_currency.setText(btc);
                 eth_currency.setText(eth);

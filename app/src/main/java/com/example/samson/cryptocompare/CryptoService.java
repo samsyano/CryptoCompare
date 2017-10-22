@@ -20,11 +20,10 @@ public class CryptoService extends IntentService {
 
         String action = intent.getAction();
         Log.e("SERVICE ", "Service working.." + action);
-        if(action.equals(CryptoTask.LOAD_DATA)){
 
-            CryptoTask.executeTask(this, action);
-            Log.e("SERVICE ", "Service working.." + action);
-        }
+        CryptoTask.executeTask(this, action);
+        Log.e("SERVICE ", "Service working.." + action);
+
 
     }
 }
