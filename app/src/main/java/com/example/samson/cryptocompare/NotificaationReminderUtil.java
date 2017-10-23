@@ -17,11 +17,11 @@ import com.firebase.jobdispatcher.Trigger;
 public class NotificaationReminderUtil {
 
 
-    public static final int REMINDER_INTERVAL_MINUTES = 30;
+    public static final int REMINDER_INTERVAL_MINUTES = 3;
     public static final int REMINDER_INTERVAL_SECONDS = (int) java.util.concurrent.TimeUnit.MINUTES.toSeconds(REMINDER_INTERVAL_MINUTES);
     public static final int SYNC_FLEXTIME_SECONDS = REMINDER_INTERVAL_SECONDS;
 
-    private static final String JOB_SCHEDULE = "cryptocurrency-tag";
+    private static final String JOB_SCHEDULE = "notification-tag";
 
     static boolean sInitialize = false;
 

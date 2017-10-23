@@ -38,6 +38,14 @@
             </intent-filter>
 
         </service>
+
+        <service android:name=".NotificationService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+            </intent-filter>
+
+        </service>
         
         <provider
             android:authorities="com.example.samson.cryptocompare"

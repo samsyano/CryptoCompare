@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
 
 
-//        getContentResolver().delete(CryptoContract.CONTENT_URI, null, null);
+        getContentResolver().delete(CryptoContract.CONTENT_URI, null, null);
 
         Intent intent = new Intent(this, CryptoService.class);
         intent.setAction(CryptoTask.LOAD_DATA);
@@ -120,10 +120,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         switch (item.getItemId()){
             case R.id.refresh_menu:
+
+                getContentResolver().delete(CryptoContract.CONTENT_URI, null, null);
+
                 Intent intent = new Intent(this, CryptoService.class);
                 intent.setAction(CryptoTask.LOAD_DATA);
                 Log.e("SERVICE", "service to start...");
                 startService(intent);
+
+               dataLoader =  getSupportLoaderManager().restartLoader(LOADER_CONSTANT, null, this);
 
                 return true;
 
