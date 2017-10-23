@@ -29,7 +29,7 @@ public class NotificationUtils {
               notificationBuilder.setColor(ContextCompat.getColor(context, R.color.colorPrimary))
                 .setContentIntent(pendingIntent(context))
                 .setLargeIcon(largeIcon(context))
-                .setSmallIcon(R.drawable.ic_account_balance_wallet_grey_700_24dp)
+                .setSmallIcon(R.mipmap.launcher_icon)
                 .setContentTitle("Cryptocurrency update...")
                 .setContentText(message)
                 .setStyle(new NotificationCompat.BigTextStyle(notificationBuilder).bigText(message))
@@ -58,7 +58,7 @@ public class NotificationUtils {
 static Bitmap largeIcon(Context context){
     Resources res = context.getResources();
 
-    return BitmapFactory.decodeResource(res, R.drawable.ic_account_balance_wallet_grey_700_24dp);
+    return BitmapFactory.decodeResource(res, R.mipmap.launcher_icon);
 }
 
 
