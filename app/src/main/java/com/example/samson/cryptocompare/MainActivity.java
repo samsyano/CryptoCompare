@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
 
         ReminderUtils.scheduleReminder(MainActivity.this);
-        NotificaationReminderUtil.scheduleReminder(MainActivity.this);
+        NotificationReminderUtil.scheduleReminder(MainActivity.this);
 
 
 

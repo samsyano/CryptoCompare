@@ -14,10 +14,10 @@ import com.firebase.jobdispatcher.Trigger;
  * Created by SAMSON on 10/22/2017.
  */
 
-public class NotificaationReminderUtil {
+public class NotificationReminderUtil {
 
 
-    public static final int REMINDER_INTERVAL_MINUTES = 3;
+    public static final int REMINDER_INTERVAL_MINUTES = 15;
     public static final int REMINDER_INTERVAL_SECONDS = (int) java.util.concurrent.TimeUnit.MINUTES.toSeconds(REMINDER_INTERVAL_MINUTES);
     public static final int SYNC_FLEXTIME_SECONDS = REMINDER_INTERVAL_SECONDS;
 
