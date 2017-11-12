@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
 
 
-        getContentResolver().delete(CryptoContract.CONTENT_URI, null, null);
+//        getContentResolver().delete(CryptoContract.CONTENT_URI, null, null);
 
         Intent intent = new Intent(this, CryptoService.class);
         intent.setAction(CryptoTask.LOAD_DATA);
@@ -104,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     protected void onResume() {
         super.onResume();
+
         getApplicationContext().getContentResolver()
                 .registerContentObserver(CryptoContract.CONTENT_URI, true, new DataObserver(new Handler()));
     }

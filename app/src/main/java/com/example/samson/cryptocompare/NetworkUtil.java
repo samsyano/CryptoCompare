@@ -16,7 +16,10 @@ import java.net.URL;
 
 public class NetworkUtil {
 
+
+
     public static final String LOGCAT = NetworkUtil.class.getSimpleName();
+
 
 
     public static String makeUrlConnection(String reqUrl){
